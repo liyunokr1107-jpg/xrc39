@@ -1,721 +1,324 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>视频号服务商商务代表工作手册</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #07C160, #06AD56);
-            color: white;
-            padding: 30px 40px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .header-actions {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .action-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
-        
-        .action-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .subtitle {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            opacity: 0.85;
-        }
-        
-        .content {
-            display: flex;
-            min-height: 600px;
-        }
-        
-        .sidebar {
-            width: 280px;
-            background: #2c3e50;
-            color: white;
-            padding: 25px 0;
-        }
-        
-        .nav-item {
-            padding: 15px 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-left: 4px solid transparent;
-        }
-        
-        .nav-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .nav-item.active {
-            background: rgba(255, 255, 255, 0.15);
-            border-left: 4px solid #07C160;
-        }
-        
-        .main-content {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-        }
-        
-        .section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .section.active {
-            display: block;
-        }
-        
-        h2 {
-            color: #07C160;
-            margin: 25px 0 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
-            font-size: 24px;
-        }
-        
-        h3 {
-            color: #2c3e50;
-            margin: 20px 0 12px;
-            font-size: 20px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        .card {
-            background: #f8f9fa;
-            border-left: 4px solid #07C160;
-            padding: 18px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .highlight {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #4caf50;
-        }
-        
-        .steps {
-            counter-reset: step;
-            margin: 20px 0;
-        }
-        
-        .step {
-            position: relative;
-            padding: 15px 15px 15px 60px;
-            margin-bottom: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .step:before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 15px;
-            top: 15px;
-            width: 30px;
-            height: 30px;
-            background: #07C160;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        th {
-            background: #f5f7fa;
-            font-weight: 600;
-        }
-        
-        tr:hover {
-            background: #f9f9f9;
-        }
-        
-        .flowchart {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 25px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .flow-step {
-            padding: 12px 15px;
-            margin: 10px 0;
-            background: #e8f5e9;
-            border-radius: 6px;
-            border-left: 4px solid #4caf50;
-        }
-        
-        .flow-arrow {
-            text-align: center;
-            font-size: 20px;
-            color: #07C160;
-            margin: 5px 0;
-        }
-        
-        .qa-item {
-            margin-bottom: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .question {
-            background: #f5f7fa;
-            padding: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .answer {
-            padding: 15px;
-            display: none;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .answer.active {
-            display: block;
-        }
-        
-        .tip-box {
-            background: #fff8e1;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-            }
-            
-            .stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .header-actions {
-                position: static;
-                justify-content: center;
-                margin-top: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <div class="header-actions">
-                <button class="action-btn" onclick="saveAsHTML()">下载手册</button>
-                <button class="action-btn" onclick="printManual()">打印</button>
-            </div>
-            <h1>视频号服务商商务代表工作手册</h1>
-            <div class="subtitle">新员工快速上岗指南 · 提升转化效率 · 实现业绩增长</div>
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-value">3</div>
-                    <div class="stat-label">核心步骤</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">5</div>
-                    <div class="stat-label">工作阶段</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">免费服务</div>
-                </div>
-            </div>
-        </header>
-        
-        <div class="content">
-            <div class="sidebar">
-                <div class="nav-item active" data-target="overview">工作概览与目标</div>
-                <div class="nav-item" data-target="sop">标准工作流程(SOP)</div>
-                <div class="nav-item" data-target="find-merchants">寻找商家途径</div>
-                <div class="nav-item" data-target="communication">电话沟通技巧</div>
-                <div class="nav-item" data-target="wechat">微信跟进与绑定</div>
-                <div class="nav-item" data-target="handover">建群与交接</div>
-                <div class="nav-item" data-target="policies">服务政策与优势</div>
-                <div class="nav-item" data-target="qa">常见问题解答</div>
-            </div>
-            
-            <div class="main-content">
-                <!-- 工作概览与目标 -->
-                <div class="section active" id="overview">
-                    <h2>工作概览与目标</h2>
-                    <div class="card">
-                        <p><strong>核心工作：</strong>寻找新开视频号小店 → 电话联系 → 添加微信 → 绑定服务商 → 建群服务</p>
-                        <p><strong>服务特点：</strong>全程免费，帮助商家提升GMV，员工按绑定数量提成</p>
-                    </div>
-                    
-                    <h3>每日关键指标</h3>
-                    <div class="steps">
-                        <div class="step">
-                            <strong>电话量：</strong>每日至少完成50通有效电话
-                        </div>
-                        <div class="step">
-                            <strong>微信添加量：</strong>每日成功添加10个商家微信
-                        </div>
-                        <div class="step">
-                            <strong>绑定数量：</strong>每日成功绑定3个商家
-                        </div>
-                    </div>
-                    
-                    <div class="highlight">
-                        <p><strong>成功关键：</strong>自信的姿态 + 高效筛选 + 及时跟进 + 流程化操作</p>
-                    </div>
-                </div>
-                
-                <!-- 标准工作流程(SOP) -->
-                <div class="section" id="sop">
-                    <h2>标准工作流程(SOP)</h2>
-                    
-                    <h3>五阶段工作法</h3>
-                    <div class="steps">
-                        <div class="step">
-                            <strong>第一阶段：开工准备 (09:00 - 10:00)</strong><br>
-                            设定目标 → 准备客户清单 → 工具与状态准备
-                        </div>
-                        <div class="step">
-                            <strong>第二阶段：电话沟通与筛选 (全天核心)</strong><br>
-                            执行标准通话流程 → 记录结果 → 立即添加微信
-                        </div>
-                        <div class="step">
-                            <strong>第三阶段：微信跟进与绑定 (电话后10分钟内)</strong><br>
-                            发送资料 → 获取超管号 → 系统绑定
-                        </div>
-                        <div class="step">
-                            <strong>第四阶段：建群与交接 (绑定成功后)</strong><br>
-                            建立运营群 → 完成交接 → 系统录入
-                        </div>
-                        <div class="step">
-                            <strong>第五阶段：每日复盘 (下班前30分钟)</strong><br>
-                            数据统计 → 问题记录 → 话术优化
-                        </div>
-                    </div>
-                    
-                    <div class="flowchart">
-                        <h3>标准通话流程图</h3>
-                        <div class="flow-step">开场白 → 探需提问</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">判断商家类型（直播/供应链）</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">解答对应问题（没流量/违规/找达人等）</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">介绍服务与政策</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">处理异议 → 请求添加微信</div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">添加微信 → 获取超管号</div>
-                    </div>
-                </div>
-                
-                <!-- 寻找商家途径 -->
-                <div class="section" id="find-merchants">
-                    <h2>寻找商家途径</h2>
-                    
-                    <h3>直播商家寻找方法</h3>
-                    <div class="steps">
-                        <div class="step">
-                            <strong>路径：</strong>微信发现 → 直播 → 购物广场 → 筛选"新店开张"
-                        </div>
-                        <div class="step">
-                            <strong>判断标准：</strong>
-                            <ul>
-                                <li>90天内新开店铺</li>
-                                <li>首笔动销在本月或之前GMV不超过1000</li>
-                                <li>查看评论时间、直播回放、短视频发布时间</li>
-                            </ul>
-                        </div>
-                        <div class="step">
-                            <strong>联系方式：</strong>私信商家、企查查、优选联盟搜索、达人橱窗反向查找
-                        </div>
-                    </div>
-                    
-                    <h3>供应链商家寻找方法</h3>
-                    <div class="steps">
-                        <div class="step">
-                            <strong>路径：</strong>微信 → 视频号 → 带货助手 → 选品中心
-                        </div>
-                        <div class="step">
-                            <strong>筛选条件：</strong>月初选择月销量低的品类（服饰鞋包、日用百货、食品、美妆个护）
-                        </div>
-                        <div class="step">
-                            <strong>判断标准：</strong>近30天销售数据与总销售额匹配，当月动销或之前GMV不超过1000
-                        </div>
-                    </div>
-                    
-                    <div class="tip-box">
-                        <p><strong>高效筛选技巧：</strong>使用达人橱窗反向寻找供应链客户，一个达人账号下通常有多个新店可供联系。</p>
-                    </div>
-                </div>
-                
-                <!-- 电话沟通技巧 -->
-                <div class="section" id="communication">
-                    <h2>电话沟通技巧</h2>
-                    
-                    <h3>标准话术结构</h3>
-                    <table>
-                        <tr>
-                            <th>阶段</th>
-                            <th>话术要点</th>
-                            <th>目的</th>
-                        </tr>
-                        <tr>
-                            <td>开场白</td>
-                            <td>"你好，xx店吗？ 我这边是微信小店服务商，
-1.平台让我们来对接商家，协助处理店铺问题，现在卖货有什么问题么
-2.平台下发给新商家的福利政策，你有没有领取过，没有的话我给您介绍一下......"</td>
-                            <td>建立身份，引起注意</td>
-                        </tr>
-                        <tr>
-                            <td>探需</td>
-                            <td>"咱们平时在直播过程中有遇到什么问题吗？"（没流量/违规/不转化等）</td>
-                            <td>了解痛点，建立共鸣</td>
-                        </tr>
-                        <tr>
-                            <td>解决问题</td>
-                            <td>根据商家问题提供简要解决方案（冷启动、短视频引流、找达人方法等）</td>
-                            <td>展示专业性，建立信任</td>
-                        </tr>
-                        <tr>
-                            <td>介绍服务</td>
-                            <td>"我们是直属于平台的指定官方服务商，全程免费提供运营支持"</td>
-                            <td>说明价值，消除顾虑</td>
-                        </tr>
-                        <tr>
-                            <td>绑定</td>
-                            <td>"我加您微信，邀请您参与扶持政策，需要您提供超管号"</td>
-                            <td>促成行动，完成转化</td>
-                        </tr>
-                    </table>
-                    
-                    <h3>常见异议处理</h3>
-                    <div class="qa-item">
-                        <div class="question">商家说"不需要" <span>+</span></div>
-                        <div class="answer">
-                            <p><strong>回应：</strong>"老板，咱们这边是有什么顾虑吗？咱们是全程不收费的，因为我们也是受平台考核的，只有店铺做起来我们才能拿到奖励。"</p>
-                        </div>
-                    </div>
-                    
-                    <div class="qa-item">
-                        <div class="question">商家说"有运营团队" <span>+</span></div>
-                        <div class="answer">
-                            <p><strong>回应：</strong>"老板，咱们这边跟您自己的运营团队不冲突，我们代表平台提供服务支持，传达政策规则，协助解决店铺问题。"</p>
-                        </div>
-                    </div>
-                    
-                    <div class="qa-item">
-                        <div class="question">商家说"视频号没流量" <span>+</span></div>
-                        <div class="answer">
-                            <p><strong>回应：</strong>"视频号是几年前的抖音，竞争小潜力大，微信日活超11亿，现在正是提前布局的好时机。"</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 微信跟进与绑定 -->
-                <div class="section" id="wechat">
-                    <h2>微信跟进与绑定</h2>
-                    
-                    <div class="card">
-                        <p><strong>黄金时间：</strong>电话挂断后<strong>10分钟内</strong>必须完成微信添加和初步沟通</p>
-                    </div>
-                    
-                    <h3>微信跟进三步法</h3>
-                    <div class="steps">
-                        <div class="step">
-                            <strong>第一步：发送资料</strong><br>
-                            立即发送服务商资质和扶持政策，建立信任，消除顾虑
-                        </div>
-                        <div class="step">
-                            <strong>第二步：获取超管号</strong><br>
-                            直接说明："老板，请您提供一下开店绑定的超管微信号，我为您录入系统发起扶持邀请。"
-                        </div>
-                        <div class="step">
-                            <strong>第三步：系统绑定</strong><br>
-                            使用超管号在内部系统完成服务商绑定操作（绑定即算提成）
-                        </div>
-                    </div>
-                    
-                    <div class="highlight">
-                        <p><strong>关键提醒：</strong>超管号是绑定成功的关键凭证，务必准确获取并录入系统。</p>
-                    </div>
-                </div>
-                
-                <!-- 建群与交接 -->
-                <div class="section" id="handover">
-                    <h2>建群与交接</h2>
-                    
-                    <h3>建群标准流程</h3>
-                    <div class="steps">
-                        <div class="step">
-                            <strong>创建微信群</strong><br>
-                            群名称格式：`XX店铺服务群`<br>
-                            群成员：您自己、商家、专属运营同事
-                        </div>
-                        <div class="step">
-                            <strong>完成交接</strong><br>
-                            在群内欢迎商家，说明服务内容<br>
-                            @运营同事，介绍商家基本情况<br>
-                            提醒商家："开播时把直播间分享到群里，运营会跟播指导"
-                        </div>
-                        <div class="step">
-                            <strong>系统录入</strong><br>
-                            在公司系统中将客户状态更新为"已绑定，已建群"<br>
-                            用于统计业绩和后续跟进
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <p><strong>标志性节点：</strong>建群完成标志<strong>您的商务工作结束</strong>，后续由运营团队接手服务。</p>
-                    </div>
-                </div>
-                
-                <!-- 服务政策与优势 -->
-                <div class="section" id="policies">
-                    <h2>服务政策与优势</h2>
-                    
-                    <h3>核心扶持政策</h3>
-                    <div class="steps">
-                        <div class="step">
-                            <strong>费用政策</strong><br>
-                            • 0保证金试运营(400个以上三级类目)<br>
-                            • 前100万自营交易额技术服务费减至1%
-                        </div>
-                        <div class="step">
-                            <strong>流量激励</strong><br>
-                            • 新开店首月GMV过1万即可获得30000微信豆奖励<br>
-                            • GMV达标商家每月额外下发微信豆奖励
-                        </div>
-                        <div class="step">
-                            <strong>服务支持</strong><br>
-                            • 专属运营全程指导<br>
-                            • 账号违规申诉、辅助解封<br>
-                            • 直播间跟播跟投及运营诊断<br>
-                            • 平台活动及时透传与报名
-                        </div>
-                    </div>
-                    
-                    <h3>起号关键要点</h3>
-                    <table>
-                        <tr>
-                            <th>方面</th>
-                            <th>要点</th>
-                        </tr>
-                        <tr>
-                            <td>直播时长</td>
-                            <td>单场≥2小时，固定时间开播，数据好可延长</td>
-                        </tr>
-                        <tr>
-                            <td>短视频</td>
-                            <td>每日2-3条，避免同质化和硬广，内容方向：科普、分享、种草类</td>
-                        </tr>
-                        <tr>
-                            <td>投流建议</td>
-                            <td>微付费(200-500元/场)，投放成交、互动、点击，兴趣不要卡太死</td>
-                        </tr>
-                        <tr>
-                            <td>私域撬动</td>
-                            <td>分享社群、朋友圈，私域交互越好，公域流量越大</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <!-- 常见问题解答 -->
-                <div class="section" id="qa">
-                    <h2>常见问题解答</h2>
-                    
-                    <div class="qa-item">
-                        <div class="question">我们是真的官方吗？还是服务商？ <span>+</span></div>
-                        <div class="answer">
-                            <p><strong>回答：</strong>"我们是平台指定授权的服务商，因为平台没有自营团队，所以把事情交给我们处理。您可以理解为我们就是平台的外包小二，在微信小店可以查到我们的资质。"</p>
-                        </div>
-                    </div>
-                    
-                    <div class="qa-item">
-                        <div class="question">服务收费吗？ <span>+</span></div>
-                        <div class="answer">
-                            <p><strong>回答：</strong>"咱们是没有任何服务费和GMV抽佣的，这个您放心。我们是平台给我们结算奖励，平台考察我们的是服务商家的数量和质量。"</p>
-                        </div>
-                    </div>
-                    
-                    <div class="qa-item">
-                        <div class="question">遇到不会回答的问题怎么办？ <span>+</span></div>
-                        <div class="answer">
-                            <p><strong>回答：</strong>"好的老板，您这个问题我了解了，我给您登记一下，反馈给运营团队看看具体情况。稍后我加您微信，您也可以在运营群里反馈，我们会安排专业运营为您解答。"</p>
-                        </div>
-                    </div>
-                    
-                    <div class="qa-item">
-                        <div class="question">老商家可以转新商家吗？ <span>+</span></div>
-                        <div class="answer">
-                            <p><strong>回答：</strong>"可以，但前提是商家执照得换新的，不能跟老店的执照一致。起新号有平台扶持、服务费减免和政策激励等优势。"</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tip-box">
-                        <p><strong>重要原则：</strong>不要问自己不清楚的问题，如果客户问到不会的问题可以记下来，后续学习补充。我们是免费招商入驻，不需要商家掏钱，不要给自己很强的心理压力。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+import React, { useState, useEffect, useRef } from 'react';
+import { Clock, BookOpen, Gamepad2, RotateCcw, ChevronLeft, ChevronRight, Sparkles, Volume2, MessageSquareText, Loader2 } from 'lucide-react';
 
-    <script>
-        // 导航切换
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function() {
-                // 移除所有active类
-                document.querySelectorAll('.nav-item').forEach(nav => {
-                    nav.classList.remove('active');
-                });
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                
-                // 添加active类
-                this.classList.add('active');
-                const targetId = this.getAttribute('data-target');
-                document.getElementById(targetId).classList.add('active');
-            });
+const App = () => {
+  const [time, setTime] = useState(new Date());
+  const [isManual, setIsManual] = useState(false);
+  const [manualHours, setManualHours] = useState(10);
+  const [manualMinutes, setManualMinutes] = useState(10);
+  const [view, setView] = useState('explore'); // 'explore' or 'quiz'
+  const [quizTask, setQuizTask] = useState({ h: 3, m: 0 });
+  const [feedback, setFeedback] = useState(null);
+  
+  // AI States
+  const [aiStory, setAiStory] = useState('');
+  const [isGeneratingStory, setIsGeneratingStory] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const apiKey = ""; // Runtime provided
+
+  // 实时时钟逻辑
+  useEffect(() => {
+    if (!isManual && view === 'explore') {
+      const timer = setInterval(() => setTime(new Date()), 1000);
+      return () => clearInterval(timer);
+    }
+  }, [isManual, view]);
+
+  const h = isManual ? manualHours : time.getHours();
+  const m = isManual ? manualMinutes : time.getMinutes();
+  const s = isManual ? 0 : time.getSeconds();
+
+  // 计算角度
+  const hourDeg = (h % 12) * 30 + m * 0.5;
+  const minDeg = m * 6;
+  const secDeg = s * 6;
+
+  // Gemini API Helper with Backoff
+  const callGemini = async (url, payload, retries = 5, delay = 1000) => {
+    for (let i = 0; i < retries; i++) {
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
         });
-        
-        // 问答展开/收起
-        document.querySelectorAll('.question').forEach(question => {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                answer.classList.toggle('active');
-                
-                // 切换+/-符号
-                const span = this.querySelector('span');
-                span.textContent = answer.classList.contains('active') ? '-' : '+';
-            });
-        });
-        
-        // 下载HTML文件
-        function saveAsHTML() {
-            const htmlContent = document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = '视频号工作手册.html';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+        if (response.ok) return await response.json();
+      } catch (e) {
+        if (i === retries - 1) throw e;
+      }
+      await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+    }
+  };
+
+  // ✨ AI Feature: Generate Story
+  const generateTimeStory = async () => {
+    setIsGeneratingStory(true);
+    setAiStory('');
+    const prompt = `现在是钟表上的 ${h}点${m}分。请为一个小孩子写一个非常简短（2句话以内）的有趣小故事，描述这个时间点通常在发生什么。语气要亲切、生动。`;
+    
+    try {
+      const result = await callGemini(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`,
+        {
+          contents: [{ parts: [{ text: prompt }] }],
+          systemInstruction: { parts: [{ text: "你是一位温和的幼儿园老师，擅长给孩子们讲时间的故事。" }] }
         }
-        
-        // 打印手册
-        function printManual() {
-            window.print();
+      );
+      const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+      setAiStory(text);
+    } catch (error) {
+      setAiStory("哎呀，魔法暂时失灵了，请稍后再试吧！");
+    } finally {
+      setIsGeneratingStory(false);
+    }
+  };
+
+  // ✨ AI Feature: Text to Speech
+  const playTts = async () => {
+    setIsSpeaking(true);
+    const textToSay = `现在是 ${h}点 ${m === 0 ? '整' : m + '分'}。`;
+    
+    try {
+      const result = await callGemini(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`,
+        {
+          contents: [{ parts: [{ text: `Say warmly: ${textToSay}` }] }],
+          generationConfig: {
+            responseModalities: ["AUDIO"],
+            speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Puck" } } }
+          },
+          model: "gemini-2.5-flash-preview-tts"
         }
-    </script>
-</body>
-</html>
+      );
+
+      const audioData = result.candidates[0].content.parts[0].inlineData.data;
+      const audioBlob = pcmToWav(audioData, 24000); // Standard sample rate
+      const audioUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioUrl);
+      audio.onended = () => setIsSpeaking(false);
+      await audio.play();
+    } catch (error) {
+      setIsSpeaking(false);
+    }
+  };
+
+  // Helper: PCM to WAV
+  const pcmToWav = (base64Pcm, sampleRate) => {
+    const binaryString = window.atob(base64Pcm);
+    const len = binaryString.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) bytes[i] = binaryString.charCodeAt(i);
+    
+    const wavHeader = new ArrayBuffer(44);
+    const view = new DataView(wavHeader);
+    const writeString = (offset, string) => {
+      for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
+    };
+
+    writeString(0, 'RIFF');
+    view.setUint32(4, 36 + len, true);
+    writeString(8, 'WAVE');
+    writeString(12, 'fmt ');
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
+    writeString(36, 'data');
+    view.setUint32(40, len, true);
+
+    const blob = new Blob([wavHeader, bytes], { type: 'audio/wav' });
+    return blob;
+  };
+
+  const generateQuiz = () => {
+    const hours = Math.floor(Math.random() * 12) || 12;
+    const minutes = [0, 15, 30, 45][Math.floor(Math.random() * 4)];
+    setQuizTask({ h: hours, m: minutes });
+    setManualHours(12);
+    setManualMinutes(0);
+    setFeedback(null);
+    setAiStory('');
+  };
+
+  const checkQuiz = () => {
+    if (manualHours % 12 === quizTask.h % 12 && manualMinutes === quizTask.m) {
+      setFeedback({ type: 'success', text: '太棒了！完全正确！' });
+    } else {
+      setFeedback({ type: 'error', text: '不对哦，再试着调一下吧。' });
+    }
+  };
+
+  const Hand = ({ deg, length, width, color, opacity = 1 }) => (
+    <div
+      className="absolute transition-transform duration-500 ease-out"
+      style={{
+        width: `${width}px`,
+        height: `${length}px`,
+        backgroundColor: color,
+        bottom: '50%',
+        left: '50%',
+        transformOrigin: 'bottom center',
+        transform: `translateX(-50%) rotate(${deg}deg)`,
+        borderRadius: '10px',
+        opacity: opacity
+      }}
+    />
+  );
+
+  return (
+    <div className="min-h-screen bg-slate-50 p-4 md:p-8 flex flex-col items-center font-sans text-slate-800">
+      <div className="max-w-4xl w-full flex flex-col lg:flex-row gap-6">
+        
+        {/* Main Clock Card */}
+        <div className="flex-1 bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+          <div className="bg-indigo-600 p-6 text-white flex justify-between items-center">
+            <div>
+              <h1 className="text-2xl font-bold flex items-center gap-2">
+                <Clock className="w-8 h-8" /> 认识钟表
+              </h1>
+            </div>
+            <div className="flex bg-indigo-700 rounded-lg p-1">
+              <button 
+                onClick={() => { setView('explore'); setIsManual(false); setAiStory(''); }}
+                className={`px-3 py-1.5 rounded-md transition text-sm ${view === 'explore' ? 'bg-white text-indigo-600 shadow' : 'text-white hover:bg-indigo-500'}`}
+              >
+                <div className="flex items-center gap-2 font-medium"><BookOpen size={16}/> 自由探索</div>
+              </button>
+              <button 
+                onClick={() => { setView('quiz'); setIsManual(true); generateQuiz(); }}
+                className={`px-3 py-1.5 rounded-md transition text-sm ${view === 'quiz' ? 'bg-white text-indigo-600 shadow' : 'text-white hover:bg-indigo-500'}`}
+              >
+                <div className="flex items-center gap-2 font-medium"><Gamepad2 size={16}/> 挑战练习</div>
+              </button>
+            </div>
+          </div>
+
+          <div className="p-6 flex flex-col items-center">
+            {/* Clock Viewport */}
+            <div className="relative w-64 h-64 md:w-72 md:h-72 bg-white border-[10px] border-slate-800 rounded-full shadow-inner flex items-center justify-center my-4">
+              <div className="absolute w-4 h-4 bg-slate-800 rounded-full z-40" />
+              {[...Array(12)].map((_, i) => {
+                const angle = (i + 1) * 30;
+                return (
+                  <div key={i} className="absolute inset-2 text-center" style={{ transform: `rotate(${angle}deg)` }}>
+                    <span className="inline-block font-black text-xl md:text-2xl" style={{ transform: `rotate(-${angle}deg)` }}>
+                      {i + 1}
+                    </span>
+                  </div>
+                );
+              })}
+              {[...Array(60)].map((_, i) => (
+                <div key={i} className="absolute w-1 bg-slate-300" style={{ height: i % 5 === 0 ? '10px' : '5px', bottom: '50%', left: '50%', transformOrigin: 'bottom center', transform: `translateX(-50%) rotate(${i * 6}deg) translateY(-${i % 5 === 0 ? 105 : 110}px)` }} />
+              ))}
+              <Hand deg={hourDeg} length={60} width={8} color="#1e293b" />
+              <Hand deg={minDeg} length={90} width={5} color="#4f46e5" />
+              {!isManual && view === 'explore' && <Hand deg={secDeg} length={100} width={2} color="#ef4444" />}
+            </div>
+
+            {/* Time Digital Display & TTS */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="bg-slate-100 px-6 py-2 rounded-2xl text-3xl font-mono font-black text-slate-700">
+                {h.toString().padStart(2, '0')}:{m.toString().padStart(2, '0')}
+              </div>
+              <button 
+                onClick={playTts}
+                disabled={isSpeaking}
+                className={`p-3 rounded-full shadow-md transition ${isSpeaking ? 'bg-indigo-100 text-indigo-400' : 'bg-indigo-500 text-white hover:bg-indigo-600 active:scale-95'}`}
+                title="AI 报时"
+              >
+                {isSpeaking ? <Loader2 className="animate-spin" /> : <Volume2 />}
+              </button>
+            </div>
+
+            {/* Controls */}
+            <div className="w-full max-w-sm space-y-4">
+              {view === 'explore' ? (
+                <div className="pt-4 border-t border-slate-100">
+                   <label className="flex items-center gap-2 cursor-pointer mb-4 justify-center">
+                    <input type="checkbox" className="w-5 h-5 accent-indigo-600" checked={isManual} onChange={(e) => setIsManual(e.target.checked)} />
+                    <span className="font-medium text-slate-700">手动调节模式</span>
+                  </label>
+                  {isManual && (
+                    <div className="space-y-4 px-4">
+                      <input type="range" min="0" max="11" value={manualHours} onChange={(e) => setManualHours(parseInt(e.target.value))} className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-800" />
+                      <input type="range" min="0" max="59" value={manualMinutes} onChange={(e) => setManualMinutes(parseInt(e.target.value))} className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600" />
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100 text-center">
+                    <p className="text-xs text-indigo-700 font-bold uppercase mb-1">目标时间</p>
+                    <p className="text-3xl font-black text-indigo-600">{quizTask.h}:{quizTask.m === 0 ? '00' : quizTask.m}</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button onClick={() => setManualHours(prev => (prev > 1 ? prev - 1 : 12))} className="p-2 bg-slate-100 rounded-lg hover:bg-slate-200 flex justify-center"><ChevronLeft/></button>
+                    <button onClick={() => setManualHours(prev => (prev < 12 ? prev + 1 : 1))} className="p-2 bg-slate-100 rounded-lg hover:bg-slate-200 flex justify-center"><ChevronRight/></button>
+                  </div>
+                  <button onClick={checkQuiz} className="w-full py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition">检查结果</button>
+                  {feedback && <div className={`p-3 rounded-lg text-center font-bold text-sm ${feedback.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>{feedback.text}</div>}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* AI Assistant Sidebar */}
+        <div className="w-full lg:w-80 space-y-6">
+          <div className="bg-white rounded-3xl shadow-lg border border-indigo-100 overflow-hidden">
+            <div className="bg-indigo-50 p-4 border-b border-indigo-100 flex items-center gap-2">
+              <Sparkles className="text-indigo-600 w-5 h-5" />
+              <h2 className="font-bold text-indigo-900">✨ AI 智慧助手</h2>
+            </div>
+            <div className="p-5 space-y-4">
+              <p className="text-sm text-slate-600 leading-relaxed">
+                想知道这个时间在发生什么吗？让 AI 为你编一个时间小故事吧！
+              </p>
+              
+              <button 
+                onClick={generateTimeStory}
+                disabled={isGeneratingStory}
+                className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold rounded-xl hover:opacity-90 transition shadow-lg disabled:opacity-50"
+              >
+                {isGeneratingStory ? <Loader2 className="animate-spin w-5 h-5" /> : <MessageSquareText size={18} />}
+                ✨ 生成时间故事
+              </button>
+
+              {aiStory && (
+                <div className="mt-4 p-4 bg-amber-50 rounded-2xl border-l-4 border-amber-400 animate-in fade-in slide-in-from-top-2 duration-500">
+                  <p className="text-sm text-amber-900 italic leading-relaxed font-medium">
+                    "{aiStory}"
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="bg-slate-800 rounded-3xl p-6 text-white shadow-xl">
+             <h3 className="font-bold mb-3 flex items-center gap-2">💡 学习笔记</h3>
+             <div className="space-y-3 text-xs opacity-90">
+               <div className="flex gap-2">
+                 <span className="text-indigo-400 font-bold">整点:</span>
+                 <span>分针指着 12，时针指着几就是几点。</span>
+               </div>
+               <div className="flex gap-2">
+                 <span className="text-indigo-400 font-bold">半点:</span>
+                 <span>分针指着 6，时针在两个数字中间。</span>
+               </div>
+               <div className="flex gap-2">
+                 <span className="text-indigo-400 font-bold">口诀:</span>
+                 <span>小小数字看时针，大大格点数分针。</span>
+               </div>
+             </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default App;
